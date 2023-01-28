@@ -15,4 +15,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file auth-api/Dockerfile --tag sample-app-auth-api:${GITHUB_REF##*/}-${GITHUB_SHA}
+      working-directory: auth-api
+      run: docker build . --file Dockerfile --tag sample-app-auth-api:${GITHUB_REF##*/}-${GITHUB_SHA}
